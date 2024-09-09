@@ -4,9 +4,7 @@ LABEL maintainer="Nils Reimers <info@nils-reimers>"
 # Install system dependencies
 RUN apt-get update && apt-get -y install build-essential procps
 
-# Install PyTorch from the specified wheel file
-RUN pip install --no-cache-dir \
-    https://download.pytorch.org/whl/cpu/torch-1.8.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+RUN pip install --no-cache-dir torch==1.8.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 # Install FastAPI, Uvicorn, and Gunicorn
 RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
